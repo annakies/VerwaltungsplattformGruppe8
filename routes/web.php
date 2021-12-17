@@ -33,3 +33,15 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.
 
 Route::post('/posts/{post}/likes', [PostLikeController::class, 'store'])->name('posts.likes');
 Route::delete('/posts/{post}/likes', [PostLikeController::class, 'destroy'])->name('posts.likes');
+
+//Leistungskatalog einsehen
+Route::get('/leistungskatalog', [\App\Http\Controllers\LeistungController::class, 'index'])->name('leistungskatalog');
+
+//Leistung hinzufügen
+Route::view('/leistungskatalog)','leistungskatalog');
+Route::post('/leistungskatalog', [\App\Http\Controllers\LeistungController::class, 'store'])->name('leistung_hinzufügen');
+
+//test
+Route::get('/test', function () {
+    return view('test');
+})->name('test');

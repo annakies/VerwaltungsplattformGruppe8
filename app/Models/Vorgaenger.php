@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Leistung extends Model
+class Vorgaenger extends Model
 {
     use HasFactory;
 }

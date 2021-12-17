@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class material_anforderung extends Model
+class Material_Anforderung extends Model
 {
     use HasFactory;
 }

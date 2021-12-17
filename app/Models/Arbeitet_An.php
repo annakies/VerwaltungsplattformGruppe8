@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Leistung extends Model
+class Arbeitet_An extends Model
 {
     use HasFactory;
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLeistungsTable extends Migration
+class CreateMaterialsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateLeistungsTable extends Migration
      */
     public function up()
     {
-        Schema::create('leistungs', function (Blueprint $table) {
-            $table->increments('leistungs_id');
-            $table->string('bezeichnung');
-            $table->enum('erforderliche_rolle', ['schreiner', 'dachdecker', 'elektriker', 'flieserleger', 'maurer', 'maler', 'sanitär']);
+        Schema::create('materials', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ class CreateLeistungsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('leistungs');
+        Schema::dropIfExists('materials');
     }
 }
