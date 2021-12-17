@@ -3,7 +3,7 @@
 @section('content')
     <div class="flex justify-center">
         <div class="w-4/12 bg-white p-6 rounded-lg">
-            <form action="{{ route('register') }}" method="post">
+            <form action="{{ route('sRegister') }}" method="post">
                 @csrf
                 <div class="mb-4">
                             <label for="zeitraum" class="sr-only">Zeitraum</label>

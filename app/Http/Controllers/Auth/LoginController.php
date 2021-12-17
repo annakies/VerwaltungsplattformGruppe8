@@ -22,15 +22,16 @@ class LoginController extends Controller
         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required',
+
         ]);
 
         if (!auth()->attempt($request->only('email', 'password'), $request->remember)) {
             return back()->with('status', 'Invalid login details');
         }
-        // if (auth()->user($request->rolle == "administrator")) {
-        //     return redirect()->route('register');
+        // if (auth()->once(['rolle'   => 'administrator'])) {
+        //     return redirect()->route('dashboard');
         // } else {
-
+        // dd(auth()->once(['rolle'   => 'administrator']));
         return redirect()->route('dashboard');
         // }
     }

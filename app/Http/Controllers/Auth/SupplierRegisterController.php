@@ -9,8 +9,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
-class RegisterController extends Controller
+
+class SupplierRegisterController extends Controller
 {
     public function __construct()
     {
@@ -19,7 +21,7 @@ class RegisterController extends Controller
 
     public function index()
     {
-        return view('auth.register');
+        return view('auth.sRegister');
     }
 
     public function store(Request $request)
@@ -41,13 +43,13 @@ class RegisterController extends Controller
             'plz' => $request->plz,
             'ortsname' => $request->ortsname,
         ]);
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'password' => Hash::make($request->password),
             'email' => $request->email,
             'adress_nr' => $adresse->id
         ]);
-
+        $user->attachRole('lieferant');
         // dd(redirect()->route('dashboard'));
         // dd($request->only('password', 'email'));
         auth()->attempt($request->only('password', 'email'));
