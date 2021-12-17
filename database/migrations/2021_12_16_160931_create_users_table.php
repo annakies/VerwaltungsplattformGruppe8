@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('personen_nr');
+            $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
             $table->string('passwort');
@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->enum('rolle', ['administrator', 'kunde', 'lieferant', 'verwaltung', 'schreiner', 'dachdecker', 'elektriker', 'flieserleger', 'maurer', 'maler', 'sanitär']);
             $table->enum('status', ['akzeptiert', 'nicht_akzeptiert'])->default('nicht_akzeptiert');
             $table->unsignedInteger('adress_nr');
+            $table->rememberToken();
             // $table->foreign('adress_nr')->references('adress_nr')->on('adresses');
             $table->timestamps();
         });
