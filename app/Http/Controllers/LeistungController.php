@@ -36,7 +36,21 @@ class LeistungController extends Controller
      */
     public function store(Request $request)
     {
-    
+       /* $this->validate($request, [
+            'bezeichnung' => 'required |string| max:225',     
+            'erforderliche_rolle' => 'required' , 
+        ]);
+        */
+        $leistung = new Leistung;
+        $leistung -> bezeichnung = $request -> bezeichnung;
+       // if (Leistung::where('bezeichnung', '=', Input::get('bezeichnung'))->exists()) {
+         //   return @error;
+          //  };
+        $leistung -> erforderliche_rolle = $request -> erforderliche_rolle;
+        $leistung -> save();
+        
+        //auth()->attempt($request->only('bezeichnung', 'erforderliche_rolle'));
+        return back();
     }
 
     /**
@@ -79,8 +93,11 @@ class LeistungController extends Controller
      * @param  \App\Models\Leistung  $leistung
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Leistung $leistung)
+    public function destroy($id)
     {
-        //
+      $data=Leistung::find($id);
+      $data -> delete();
+      return redirect('leistungskatalog');
     }
+   
 }

@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body class="bg-gray-200">
-        <nav class="p-6 bg-white flex justify-between mb-6">
+        <nav class="p-6 flex justify-between mb-6">
             <ul class="flex items-center">
                 <li>
                     <a href="/" class="p-3">Home</a>
@@ -22,7 +22,10 @@
                     <a href="{{ route('posts') }}" class="p-3">Posts</a>
                 </li>
             </ul>
-
+            <ul class= "flex item-center w-52">
+            <img src= "images\logo.png"  >
+            </ul>
+           
             <ul class="flex items-center">
                 @auth
                     <li>
@@ -45,7 +48,10 @@
                     </li>
                 @endguest
             </ul>
+            
         </nav>
         @yield('content')
+        
     </body>
+   
 </html>

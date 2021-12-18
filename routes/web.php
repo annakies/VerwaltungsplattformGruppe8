@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\LeistungController;
 
 Route::get('/', function () {
     return view('home');
@@ -35,11 +36,15 @@ Route::post('/posts/{post}/likes', [PostLikeController::class, 'store'])->name('
 Route::delete('/posts/{post}/likes', [PostLikeController::class, 'destroy'])->name('posts.likes');
 
 //Leistungskatalog einsehen
-Route::get('/leistungskatalog', [\App\Http\Controllers\LeistungController::class, 'index'])->name('leistungskatalog');
+Route::get('/leistungskatalog', [LeistungController::class, 'index'])->name('leistungskatalog');
 
-//Leistung hinzufügen
-Route::view('/leistungskatalog)','leistungskatalog');
-Route::post('/leistungskatalog', [\App\Http\Controllers\LeistungController::class, 'store'])->name('leistung_hinzufügen');
+//V010/ Leistung hinzufügen 
+//Route::view('/leistungskatalog','leistungskatalog');
+Route::post('/leistungskatalog', [LeistungController::class, 'store'])->name('leistung_hinzufügen');
+
+//V020/ Leistung entfernen
+//Route::delete('leistungskatalog/{leistungs_id}', [LeistungController::class, 'destroy'])->name('leistung.destroy');
+Route::get('/leistungskatalog/{id}', [LeistungController::class, 'destroy'])->name('leistung_entfernen');
 
 //test
 Route::get('/test', function () {

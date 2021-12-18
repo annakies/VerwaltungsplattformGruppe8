@@ -10,11 +10,18 @@
                     <tbody class="bg-white">
                 <form action="" method="POST">
                     @csrf 
-                    <input type="text" name="bezeichnung" placeholder="Bezeichnung eingeben">
-                    <input type="text" name="erforderliche_rolle" placeholder="Rolle eingeben">
+                    <input type="text" name="bezeichnung" placeholder="Bezeichnung eingeben" >
+                    <input type="box" name="erforderliche_rolle" placeholder="Rolle eingeben">
+                    <button type="submit">Leistung hinzufügen</button>
+                   
+                    <!-- @error('bezeichnung')
+                        <div class="text-red-500 mt-2 text-sm">
+                            {{ $message }}
+                        </div>
+                    @enderror -->
                 </form>
                   
-                    </tbody>
+            </tbody>
                 </table>
             </div>
         </div>
@@ -37,12 +44,13 @@
                     @foreach($leistungs as $leistung)
                     
                     <tr class="whitespace-nowrap">
-                        <td class="px-6 py-4 text-sm text-gray-500"> {{$leistung ['leistungs_id']}}</td>
+                        <td class="px-6 py-4 text-sm text-gray-500"> {{$leistung ['id']}}</td>
                         <td class="px-6 py-4 text-sm text-gray-500">{{$leistung ['bezeichnung']}} </td>
                         <td class="px-6 py-4 text-sm text-gray-500">{{$leistung ['erforderliche_rolle']}} </td>
-                        <td class="px-6 py-4">
-                            <a href="#" class="px-4 py-1 text-sm text-white bg-entfernen rounded">Leistung entfernen</a>
-                        </td>                   
+                        <td class="px-6 py-4">                                                   
+                            <a href={{"/leistungskatalog/".$leistung['id']}} class="px-4 py-1 text-sm text-white bg-entfernen rounded"> Leistung entfernen</a>
+                        </td>  
+
                     </tr>
                     @endforeach
                     </tbody>
