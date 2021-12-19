@@ -35,7 +35,7 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.
 Route::post('/posts/{post}/likes', [PostLikeController::class, 'store'])->name('posts.likes');
 Route::delete('/posts/{post}/likes', [PostLikeController::class, 'destroy'])->name('posts.likes');
 
-//Leistungskatalog einsehen
+//Leistungskatalog einsehen /V010//V020/
 Route::get('/leistungskatalog', [LeistungController::class, 'index'])->name('leistungskatalog');
 
 //V010/ Leistung hinzufügen 
@@ -43,7 +43,6 @@ Route::get('/leistungskatalog', [LeistungController::class, 'index'])->name('lei
 Route::post('/leistungskatalog', [LeistungController::class, 'store'])->name('leistung_hinzufügen');
 
 //V020/ Leistung entfernen
-//Route::delete('leistungskatalog/{leistungs_id}', [LeistungController::class, 'destroy'])->name('leistung.destroy');
 Route::get('/leistungskatalog/{id}', [LeistungController::class, 'destroy'])->name('leistung_entfernen');
 
 //test
